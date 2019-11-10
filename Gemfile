@@ -18,6 +18,8 @@ end
 gem 'puma', '~> 4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
+#trollop
+gem 'trollop'
 #yarn
 gem 'yarn', '~> 0.1.1'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
