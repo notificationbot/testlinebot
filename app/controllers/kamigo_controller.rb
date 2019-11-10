@@ -1,4 +1,5 @@
 class KamigoController < ApplicationController
+  protect_from_forgery with: :null_session
   def eat
     render plain: "吃土啦"
   end 
@@ -27,8 +28,7 @@ class KamigoController < ApplicationController
     render plain: "虎哇花哈哈哈"
     puts "===這是設定後的response.body:#{response.body}==="
   end
-
-    def sent_request
+  def sent_request
     uri = URI('http://localhost:3000/kamigo/eat')
     http = Net::HTTP.new(uri.host, uri.port)
     http_request = Net::HTTP::Get.new(uri)
@@ -41,4 +41,7 @@ class KamigoController < ApplicationController
       http_response_class: http_response.class
     })
   end
+  def webhook
+    head :ok
+  end 
 end
